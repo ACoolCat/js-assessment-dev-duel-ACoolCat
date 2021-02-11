@@ -25,11 +25,22 @@ export default async(username) => {
           }
     })
     repoData = repoData.data;
+    let fork = [];
+    let language = [];
+    let issues = [];
+    let stars = [];
     for (var i = 0; i < repoData.length; i++) {
-      responseData["fork" + [i]] = repoData[i].fork;
-      responseData["language" + [i]] = repoData[i].language;
-      responseData["issues" + [i]] = repoData[i].open_issues;
+      fork.push(repoData[i].fork);
+      if(repoData[i].language !== null){
+        language.push(repoData[i].language);
+      }
+      issues.push(repoData[i].open_issues);
+      stars.push(repoData[i].stargazers_count);
     }
+    responseData["forks"] = fork;
+    responseData["languages"] = language;
+    responseData["issues"] = issues;
+    responseData["stars"] = stars;
 
     return responseData;
 }
