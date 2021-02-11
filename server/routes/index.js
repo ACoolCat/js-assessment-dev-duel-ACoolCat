@@ -5,6 +5,10 @@ import token from '../../token'
 
 import validation from './validation'
 
+import fs from 'fs'
+
+import user from './user'
+
 export default () => {
   let router = Router()
 
@@ -23,14 +27,22 @@ export default () => {
   })
 
   /** GET /api/user/:username - Get user */
-  router.get('/user/:username', validate(validation.user), (req, res) => {
-    console.log(req.params)
-    /*
-      TODO
-      Fetch data for user specified in path variable
-      parse/map data to appropriate structure and return as JSON object
-    */
-  })
+  router.get('/user/:username', validate(validation.user), async(req, res) => {
+  console.log(req.params)
+    const username = req.params.username;
+    try {
+      let userData = await user(username);
+      return res.json(userData);
+    } catch (error){
+    return res.send(error.response.status === 404);
+    }
+  /*
+
+    TODO
+    Fetch data for user specified in path variable
+    parse/map data to appropriate structure and return as JSON object
+  */
+})
 
   /** GET /api/users? - Get users */
   router.get('/users/', validate(validation.users), (req, res) => {
@@ -41,6 +53,14 @@ export default () => {
       parse/map data to appropriate structure and return as a JSON array
     */
   })
+
+  router.get('/test', (req, res) => {
+    let tester = fs.readFileSync(path.resolve(__dirName, "./axios.JSON"));
+    console.log(JSON.parse(tester));
+  })
+
+
+
 
   return router
 }
