@@ -10,6 +10,9 @@ $('form').submit(() => {
     .then(data => {
       console.log(`Got data for ${username}`)
       console.log(data)
+      $('#full-name').html(data.name)
+      $('#following').html(data.following)
+      console.log(data.following);
       /*
         TODO
         Attach the data returned to the DOM
