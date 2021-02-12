@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/duel.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" charset="utf-8"></script>
     <script src="env.js"></script>
 </head>
 <body>
@@ -27,8 +28,8 @@
         <section class="form-container">
             <form>
                 <div class="input-container">
-                    <input name="username-left" type="text" placeholder="username">
-                    <input name="username-right" type="text" placeholder="username">
+                    <input name="username-left" type="text" placeholder="username" class="left-input">
+                    <input name="username-right" type="text" placeholder="username" class="right-input">
                 </div>
                 <button type="submit">duel</button>
             </form>
@@ -36,91 +37,99 @@
                 <span class="error">Error message here</span>
             </section>
         </section>
-        <section class="duel-container hide">
+        <section class="duel-container">
             <section class="user-results left">
-                <span class="username">qbolt</span>
-                <span class="full-name">Quinton Bolt</span>
-                <span class="location">Memphis, TN</span>
-                <span class="email">bolt.quinton@gmail.com</span>
-                <span class="bio">Designer/Developer</span>
-                <img class="avatar" src="https://avatars0.githubusercontent.com/u/17500092?v=4" alt="avatar picture">
+                <span class="username left"></span>
+                <span class="full-name"></span>
+                <span class="location"></span>
+                <span class="email"></span>
+                <span class="bio"></span>
+                <div class="image-left">
+
+                </div>
                 <div class="stats">
                     <div class="stat">
                         <span class="label">Titles:&nbsp;</span>
-                        <span class="titles value">Forker, Stalker</span>
+                        <span class="titles value"></span>
                     </div>
                     <div class="stat">
                         <span class="label">Favorite language:&nbsp;</span>
-                        <span class="favorite-language value">JavaScript</span>
+                        <span class="favorite-language value"></span>
                     </div>
                     <div class="stat">
                         <span class="label">Total stars:&nbsp;</span>
-                        <span class="total-stars value">5</span>
+                        <span class="total-stars value"></span>
                     </div>
                     <div class="stat">
                         <span class="label">Highest star count:&nbsp;</span>
-                        <span class="highest-starred value">4</span>
+                        <span class="highest-starred value"></span>
                     </div>
                     <div class="stat">
                         <span class="label">Public repos:&nbsp;</span>
-                        <span class="public-repos value">16</span>
+                        <span class="public-repos value"></span>
                     </div>
                     <div class="stat">
                         <span class="label">'Perfect' Repos:&nbsp;</span>
-                        <span class="perfect-repos value">2</span>
+                        <span class="perfect-repos value"></span>
                     </div>
                     <div class="stat">
                         <span class="label">Followers:&nbsp;</span>
-                        <span class="followers value">10</span>
+                        <span class="followers value"></span>
                     </div>
                     <div class="stat">
                         <span class="label">Following:&nbsp;</span>
-                        <span class="following value">1</span>
+                        <span class="following value"></span>
                     </div>
                 </div>
             </section>
             <section class="user-results right">
-                <span class="username">qbolt</span>
-                <span class="full-name">Quinton Bolt</span>
-                <span class="location">Memphis, TN</span>
-                <span class="email">bolt.quinton@gmail.com</span>
-                <span class="bio">Designer/Developer</span>
-                <img class="avatar" src="https://avatars0.githubusercontent.com/u/17500092?v=4" alt="avatar picture">
+                <span class="username"></span>
+                <span class="full-name"></span>
+                <span class="location"></span>
+                <span class="email"></span>
+                <span class="bio"></span>
+                <div class="image-right">
+
+                </div>
                 <div class="stats">
                     <div class="stat">
                         <span class="label">Titles:&nbsp;</span>
-                        <span class="titles value">Forker, Stalker</span>
+                        <span class="titles value"></span>
                     </div>
                     <div class="stat">
                         <span class="label">Favorite language:&nbsp;</span>
-                        <span class="favorite-language value">JavaScript</span>
+                        <span class="favorite-language value"></span>
                     </div>
                     <div class="stat">
                         <span class="label">Total stars:&nbsp;</span>
-                        <span class="total-stars value">5</span>
+                        <span class="total-stars value"></span>
                     </div>
                     <div class="stat">
                         <span class="label">Highest star count:&nbsp;</span>
-                        <span class="highest-starred value">4</span>
+                        <span class="highest-starred value"></span>
                     </div>
                     <div class="stat">
                         <span class="label">Public repos:&nbsp;</span>
-                        <span class="public-repos value">16</span>
+                        <span class="public-repos value"></span>
                     </div>
                     <div class="stat">
                         <span class="label">'Perfect' Repos:&nbsp;</span>
-                        <span class="perfect-repos value">2</span>
+                        <span class="perfect-repos value"></span>
                     </div>
                     <div class="stat">
                         <span class="label">Followers:&nbsp;</span>
-                        <span class="followers value">10</span>
+                        <span class="followers value"></span>
                     </div>
                     <div class="stat">
                         <span class="label">Following:&nbsp;</span>
-                        <span class="following value">1</span>
+                        <span class="following value"></span>
                     </div>
                 </div>
             </section>
+        </section>
+        <section class="winner">
+          <h1>The Winner Is: </h1>
+          <span class="username"></span>
         </section>
     </main>
 </div>

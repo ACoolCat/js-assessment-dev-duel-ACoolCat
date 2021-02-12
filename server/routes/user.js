@@ -42,5 +42,82 @@ export default async(username) => {
     responseData["issues"] = issues;
     responseData["stars"] = stars;
 
+    let forkCount = 0;
+    let totalFork = 0;
+    let tagArray = []
+    for (var i = 0; i < fork.length; i++) {
+      if(fork[i]== true){
+        forkCount++
+      }
+      totalFork++
+    }
+
+    if(forkCount >=(totalFork/2)){
+      tagArray.push("Forker, ")
+    }
+
+    if(totalFork >=10){
+      tagArray.push("No More Training Wheels, ")
+    }
+
+    if(language.every( (val, i, arr) => val === arr[0] ) ){
+      tagArray.push("One-Trick Pony, ")
+    }
+
+    let uniqueLanguage = [...new Set(language)];
+
+    if(uniqueLanguage.length >= 10){
+      tagArray.push("Jack Of All Trades, ")
+    }
+
+    if(userData.following >= (userData.followers * 2)){
+      tagArray.push("Stalker, ")
+    }
+
+    if(userData.followers >= (userData.following * 2)){
+      tagArray.push("Mr. Popular, ")
+    }
+
+    responseData["tags"] = tagArray;
+
+    var modeMap = {};
+    var maxEl = language[0], maxCount = 1;
+    for(var i = 0; i < language.length; i++)
+    {
+        var el = language[i];
+        if(modeMap[el] == null)
+            modeMap[el] = 1;
+            else
+            modeMap[el]++;
+            if(modeMap[el] > maxCount)
+            {
+              maxEl = el;
+              maxCount = modeMap[el];
+            }
+        }
+
+        responseData["favLanguage"] = maxEl;
+
+        let starAdder = 0
+        let largeNum = 0
+        for (var i = 0; i < stars.length; i++) {
+          starAdder = stars[i] + starAdder;
+          if(largeNum < stars[i]){
+            largeNum = stars[i];
+          }
+        }
+
+        responseData["largeStar"] = starAdder;
+        responseData["mostStarred"] = largeNum;
+
+        let perfect = 0
+        for (var i = 0; i < issues.length; i++) {
+          if(issues[i] == 0){
+            perfect++;
+          }
+        }
+
+        responseData["perfected"] = perfect;
+
     return responseData;
 }
