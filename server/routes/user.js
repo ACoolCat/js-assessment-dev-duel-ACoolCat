@@ -118,6 +118,5 @@ export default async(username) => {
         }
 
         responseData["perfected"] = perfect;
-
     return responseData;
 }

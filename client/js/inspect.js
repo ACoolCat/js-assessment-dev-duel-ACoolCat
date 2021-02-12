@@ -2,9 +2,7 @@
 $('form').submit(() => {
   const username = $('form input').val()
   console.log(`examining ${username}`)
-
   // Fetch data for given user
-  // (https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
   fetch(`${USER_URL}/${username}`)
     .then(response => response.json()) // Returns parsed json data from response body as promise
     .then(data => {

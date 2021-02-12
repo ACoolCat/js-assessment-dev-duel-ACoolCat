@@ -84,5 +84,5 @@
      }else{
        $(".winner .username").html(username2);
      }
-   return false // return false to prevent default form submission
+   return false 
  })
